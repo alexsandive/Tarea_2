@@ -1,7 +1,7 @@
 
-"""Do math with your own functions.
+"""Calculo numérico de integrales definidas.
 
-Modules exported by this package:
+Módulos exportados por este paquete:
 
-- `cuadrature`: Provide several sample math calculations.
+- `cuadrature`: Calcula integrales de forma numérica mediante el método de cuadratura Gaussiana.
 """
