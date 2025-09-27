@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#metodo-de-cuadratura-gaussiana" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -179,6 +184,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Explicación
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -191,6 +211,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polinomios-de-legendre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polinomios de Legendre
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polinomios de Legendre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-recursividad-de-los-polinomios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición de recursividad de los polinomios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalado-del-intervalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalado del intervalo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -257,6 +329,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polinomios-de-legendre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polinomios de Legendre
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polinomios de Legendre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-de-recursividad-de-los-polinomios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición de recursividad de los polinomios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalado-del-intervalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalado del intervalo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -272,9 +387,41 @@
 
 
 
-  <h1>Explicación</h1>
-
-
+<h1 id="metodo-de-cuadratura-gaussiana"><strong>Método de Cuadratura Gaussiana</strong></h1>
+<p>La cuadratura Gaussiana es un método de integración numérica que aproxima una integral definida mediante una suma ponderada de valores de la función en puntos específicos, <strong>no equidistantes</strong> dentro del intervalo de integración. En otras palabras:</p>
+<div class="arithmatex">\[
+\int_{a}^{b} f(x) dx \approx \sum_{i=1}^{N} w_k f(x_k)
+\]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(x_k\)</span> son los <strong>puntos de muestreo</strong></li>
+<li><span class="arithmatex">\(w_k\)</span> son los <strong>"pesos"</strong></li>
+<li><span class="arithmatex">\(N\)</span> es el número de puntos de evaluación</li>
+</ul>
+<h2 id="polinomios-de-legendre"><strong>Polinomios de Legendre</strong></h2>
+<p>Este método utiliza los polinomios ortogonales de Legendre <span class="arithmatex">\(P_n(x)\)</span> definidos en el intervalo <span class="arithmatex">\([-1, 1]\)</span> para elegir los pesos y los puntos de muestreo que se necesitan. </p>
+<ul>
+<li>Los puntos de cuadratura <span class="arithmatex">\(x_k\)</span> corresponden a las <span class="arithmatex">\(N\)</span> raíces (ceros) de los polinomios de Legendre <span class="arithmatex">\(P_N(x)\)</span> de orden <span class="arithmatex">\(N\)</span>.</li>
+<li>
+<p>Los pesos se eligen tal que:</p>
+<div class="arithmatex">\[
+w_k = \left[ \frac{2}{(1-x^2)} \left(\frac{dP_N}{dx}\right)^{-2} \right]_{x=x_k}; P_N(x_k) = 0
+\]</div>
+</li>
+</ul>
+<h3 id="definicion-de-recursividad-de-los-polinomios">Definición de recursividad de los polinomios</h3>
+<p>Tomando <span class="arithmatex">\(P_0(x) = 1\)</span> y <span class="arithmatex">\(P_1(x) = x\)</span>,</p>
+<div class="arithmatex">\[
+(N + 1)P_{N+1}(x) = (2N + 1)xP_N(x) - NP_{N-1}(x)
+\]</div>
+<h2 id="escalado-del-intervalo"><strong>Escalado del intervalo</strong></h2>
+<p>Debido a que los polinomios de Legendre están definidos en <span class="arithmatex">\([-1, 1]\)</span>, para integrar en un intervalo arbitrario <span class="arithmatex">\([a, b]\)</span>, se debe aplicar la siguiente transformación sobre los pesos y los puntos de muestreo:</p>
+<div class="arithmatex">\[
+x_{\text{esc}} = \frac{b-a}{2}x + \frac{a+b}{2}
+\]</div>
+<div class="arithmatex">\[
+w_{\text{esc}} = \frac{b-a}{2}w
+\]</div>
 
 
 

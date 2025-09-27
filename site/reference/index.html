@@ -442,7 +442,9 @@ al intervalo de integración específico [a, b].</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_esc</span><span class="p">,</span> <span class="n">w_esc</span> <span class="o">=</span> <span class="n">escalar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_esc</span>
-<span class="go">array([0., 1., 2.])</span>
+<span class="go">array([0.0, 1.0, 2.0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w_esc</span>
+<span class="go">array([0.5, 1.0, 0.5])</span>
 </code></pre></div>
 
 
@@ -498,7 +500,7 @@ al intervalo de integración específico [a, b].</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Puntos de cuadratura en [-1, 1]</p>
+                <p>Puntos de muestreo en [-1, 1]</p>
               </div>
             </td>
             <td>
@@ -514,7 +516,7 @@ al intervalo de integración específico [a, b].</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Pesos de cuadratura en [-1, 1]</p>
+                <p>Pesos en [-1, 1]</p>
               </div>
             </td>
             <td>
@@ -575,7 +577,10 @@ al intervalo de integración específico [a, b].</p>
 <span class="normal">62</span>
 <span class="normal">63</span>
 <span class="normal">64</span>
-<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">escalar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span> 
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">escalar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Escala puntos y pesos al intervalo de integración [a, b].</span>
 
 <span class="sd">    Transforma los puntos y pesos del intervalo estándar [-1, 1] </span>
@@ -586,13 +591,16 @@ al intervalo de integración específico [a, b].</p>
 <span class="sd">        &gt;&gt;&gt; w = np.array([0.5, 1.0, 0.5])</span>
 <span class="sd">        &gt;&gt;&gt; x_esc, w_esc = escalar(0, 2, x, w)</span>
 <span class="sd">        &gt;&gt;&gt; x_esc</span>
-<span class="sd">        array([0., 1., 2.])</span>
+<span class="sd">        array([0.0, 1.0, 2.0])</span>
+<span class="sd">        &gt;&gt;&gt; w_esc</span>
+<span class="sd">        array([0.5, 1.0, 0.5])</span>
+
 
 <span class="sd">    Args:</span>
 <span class="sd">        a (float): Límite inferior del intervalo de integración</span>
 <span class="sd">        b (float): Límite superior del intervalo de integración</span>
-<span class="sd">        x (ndarray): Puntos de cuadratura en [-1, 1]</span>
-<span class="sd">        w (ndarray): Pesos de cuadratura en [-1, 1]</span>
+<span class="sd">        x (ndarray): Puntos de muestreo en [-1, 1]</span>
+<span class="sd">        w (ndarray): Pesos en [-1, 1]</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple: Una tupla que contiene:</span>
@@ -625,9 +633,9 @@ de cuadratura Gaussiana, utilizado en integración numérica.</p>
 <p><span class="doc-section-title">Examples:</span></p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">gaussxw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">x</span>
+<span class="go">array([-0.77459667, 0., 0.77459667])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span>
-<span class="go">d</span>
+<span class="go">array([0.55555556, 0.88888889, 0.55555556])</span>
 </code></pre></div>
 
 
@@ -651,7 +659,7 @@ de cuadratura Gaussiana, utilizado en integración numérica.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Número de puntos de cuadratura deseado</p>
+                <p>Número de subdivisiones deseado</p>
               </div>
             </td>
             <td>
@@ -677,8 +685,8 @@ de cuadratura Gaussiana, utilizado en integración numérica.</p>
             <td>
               <div class="doc-md-description">
                 <p>Una tupla que contiene dos arrays:
-- x (ndarray): Puntos de cuadratura en el intervalo [-1, 1]
-- w (ndarray): Pesos de cuadratura correspondientes</p>
+- x (ndarray): Puntos de muestreo en el intervalo [-1, 1]
+- w (ndarray): Pesos correspondientes</p>
               </div>
             </td>
           </tr>
@@ -686,8 +694,8 @@ de cuadratura Gaussiana, utilizado en integración numérica.</p>
     </table>
 
 
-<details class="notas" open>
-  <summary>Notas</summary>
+<details class="nota" open>
+  <summary>Nota</summary>
   <p>Los puntos y pesos se calculan usando la función leggauss 
 del módulo numpy.polynomial.legendre.</p>
 </details>
@@ -729,19 +737,19 @@ del módulo numpy.polynomial.legendre.</p>
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; x, w = gaussxw(3)</span>
 <span class="sd">        &gt;&gt;&gt; x</span>
-<span class="sd">        x</span>
+<span class="sd">        array([-0.77459667, 0., 0.77459667])</span>
 <span class="sd">        &gt;&gt;&gt; w</span>
-<span class="sd">        d</span>
+<span class="sd">        array([0.55555556, 0.88888889, 0.55555556])</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        N (int): Número de puntos de cuadratura deseado</span>
+<span class="sd">        N (int): Número de subdivisiones deseado</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        tuple: Una tupla que contiene dos arrays:</span>
-<span class="sd">            - x (ndarray): Puntos de cuadratura en el intervalo [-1, 1]</span>
-<span class="sd">            - w (ndarray): Pesos de cuadratura correspondientes</span>
+<span class="sd">            - x (ndarray): Puntos de muestreo en el intervalo [-1, 1]</span>
+<span class="sd">            - w (ndarray): Pesos correspondientes</span>
 
-<span class="sd">    Notas:</span>
+<span class="sd">    Nota:</span>
 <span class="sd">        Los puntos y pesos se calculan usando la función leggauss </span>
 <span class="sd">        del módulo numpy.polynomial.legendre.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -793,11 +801,11 @@ de integración numérica. En este caso: f(x) = x⁶ - x²·sin(2x)</p>
                 <code>x</code>
             </td>
             <td>
-                  <code>float o ndarray</code>
+                  <code><span title="float">float</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Punto(s) donde evaluar la función</p>
+                <p>Punto donde evaluar la función</p>
               </div>
             </td>
             <td>
@@ -812,17 +820,17 @@ de integración numérica. En este caso: f(x) = x⁶ - x²·sin(2x)</p>
     <table>
       <thead>
         <tr>
-          <th>Type</th>
+<th>Name</th>          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td>
+<td><code>float</code></td>            <td>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>float o ndarray: Valor(es) de la función en el(s) punto(s) dado(s)</p>
+                <p>Valor de la función en el punto dado</p>
               </div>
             </td>
           </tr>
@@ -832,10 +840,7 @@ de integración numérica. En este caso: f(x) = x⁶ - x²·sin(2x)</p>
 
             <details class="quote">
               <summary>Source code in <code>cuadrature.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">70</span>
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
@@ -850,7 +855,10 @@ de integración numérica. En este caso: f(x) = x⁶ - x²·sin(2x)</p>
 <span class="normal">82</span>
 <span class="normal">83</span>
 <span class="normal">84</span>
-<span class="normal">85</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">integrando</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">integrando</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Define la función matemática a integrar.</span>
 
 <span class="sd">    Esta función representa el integrando específico para el problema</span>
@@ -863,10 +871,10 @@ de integración numérica. En este caso: f(x) = x⁶ - x²·sin(2x)</p>
 <span class="sd">        1 - np.sin(2)  # Aproximadamente -0.9092974268256817</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        x (float o ndarray): Punto(s) donde evaluar la función</span>
+<span class="sd">        x (float): Punto donde evaluar la función</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        float o ndarray: Valor(es) de la función en el(s) punto(s) dado(s)</span>
+<span class="sd">        float: Valor de la función en el punto dado</span>
 <span class="sd">   &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">6</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
