@@ -20,7 +20,7 @@
     
     
       
-        <title>Tutorial - Cuadratura Gaussiana</title>
+        <title>Tutorials - Tarea 2 FS-0432</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -75,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Cuadratura Gaussiana" class="md-header__button md-logo" aria-label="Cuadratura Gaussiana" data-md-component="logo">
+    <a href=".." title="Tarea 2 FS-0432" class="md-header__button md-logo" aria-label="Tarea 2 FS-0432" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,13 +94,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cuadratura Gaussiana
+            Tarea 2 FS-0432
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorial
+              Tutorials
             
           </span>
         </div>
@@ -133,13 +138,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Cuadratura Gaussiana" class="md-nav__button md-logo" aria-label="Cuadratura Gaussiana" data-md-component="logo">
+    <a href=".." title="Tarea 2 FS-0432" class="md-nav__button md-logo" aria-label="Tarea 2 FS-0432" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Cuadratura Gaussiana
+    Tarea 2 FS-0432
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -156,7 +161,7 @@
   
   
   <span class="md-ellipsis">
-    Problema
+    Index
     
   </span>
   
@@ -178,7 +183,7 @@
   
   
   <span class="md-ellipsis">
-    Explicación
+    Explanation
     
   </span>
   
@@ -201,18 +206,61 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Tutorial
+    Tutorials
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico-de-implementacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo práctico de implementación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -230,7 +278,7 @@
   
   
   <span class="md-ellipsis">
-    Referencia
+    Reference
     
   </span>
   
@@ -257,6 +305,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico-de-implementacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo práctico de implementación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -272,9 +339,31 @@
 
 
 
-  <h1>Tutorial</h1>
+<h1 id="tutorial"><strong>Tutorial</strong></h1>
+<p>Para calcular una integral definida usando este módulo:</p>
+<ol>
+<li><strong>Defina el integrando</strong>: Modifique la función <code>integrando(x)</code> con la expresión matemática deseada</li>
+<li><strong>Especifique los límites</strong>: Asigne los valores correctos a las variables <code>ext_inicial</code> y <code>ext_final</code>  </li>
+</ol>
+<h2 id="ejemplo-practico-de-implementacion"><strong>Ejemplo práctico de implementación</strong></h2>
+<p>Para calcular:</p>
+<div class="arithmatex">\[
+\int_{0}^{3} (\cos(x)\sin(2x))  dx
+\]</div>
+<p><code>integrando(x)</code>, <code>ext_inicial</code> y <code>ext_final</code> deben verse de esta forma:</p>
+<pre><code>
+def integrando(x):
+    return np.cos(x) * np.sin(2 * x)
 
+ext_inicial = 0
+ext_final = 3
 
+</code></pre>
+<p>Asimismo, a la hora de ejecutar el script, este debe dar el siguiente resultado:</p>
+<pre><code>
+El valor de la integral es 1.3135179586 y se alcanza para un N de 11, con una tolerancia de 1e-12
+
+</code></pre>
 
 
 
