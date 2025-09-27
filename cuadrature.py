@@ -27,7 +27,8 @@ def gaussxw(N):
         N (int): Número de subdivisiones deseado
 
     Returns:
-        tuple: Una tupla que contiene dos arrays:
+        (tuple): Una tupla que contiene dos arrays:
+
             - x (ndarray): Puntos de muestreo en el intervalo [-1, 1]
             - w (ndarray): Pesos correspondientes
 
@@ -61,7 +62,8 @@ def escalar(a, b, x, w):
         w (ndarray): Pesos en [-1, 1]
 
     Returns:
-        tuple: Una tupla que contiene:
+        (tuple): Una tupla que contiene:
+
             - puntos_escalados (ndarray): Puntos escalados a [a, b]
             - pesos_escalados (ndarray): Pesos escalados apropiadamente
     """
@@ -83,7 +85,7 @@ def integrando(x):
         x (float): Punto donde evaluar la función
 
     Returns:
-        float: Valor de la función en el punto dado
+        (float): Valor de la función en el punto dado
    """
     return x**6 - x**2 * np.sin(2 * x)
 
