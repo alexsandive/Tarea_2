@@ -95,11 +95,12 @@ tolerancia = 1e-12
 ext_inicial = 1
 ext_final = 3
 
-i = 0
-
 num_subdivisiones = 1
 
-while i == 0:
+valor_integralN = 12
+valor_integralN1 = 0
+
+while np.abs(valor_integralN1 - valor_integralN) > tolerancia:
 
     #Cálculo de integral para N subdivisiones
     puntosN, pesosN = gaussxw(num_subdivisiones)
@@ -107,16 +108,12 @@ while i == 0:
 
     valor_integralN = np.sum(integrando(puntos_escN)*pesos_escN) #cálculo de la integral mediante la cuadratura gaussiana
 
-    #Cálculo de integral para N - 1 subdivisiones
+    #Cálculo de integral para N + 1 subdivisiones
     puntosN1, pesosN1 = gaussxw(num_subdivisiones + 1)
     puntos_escN1, pesos_escN1 = escalar(ext_inicial, ext_final, puntosN1, pesosN1)
 
     valor_integralN1 = np.sum(integrando(puntos_escN1)*pesos_escN1)
     
-    #Verificación de convergencia
-    if np.abs(valor_integralN1 - valor_integralN) < tolerancia:
-        i = 1
-    else:
-        num_subdivisiones += 1
+    num_subdivisiones += 1
 
-print(f'El valor de la integral es {valor_integralN:.10f} y se alcanza para un N de {num_subdivisiones}, con una tolerancia de {tolerancia}')
+print(f'El valor de la integral es {valor_integralN1:.10f} y se alcanza para un N de {num_subdivisiones}, con una tolerancia de {tolerancia}')

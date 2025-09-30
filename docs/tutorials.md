@@ -29,7 +29,7 @@ Asimismo, a la hora de ejecutar el script, este debe dar el siguiente resultado:
 
 ~~~
 
-El valor de la integral es 1.3135179586 y se alcanza para un N de 11, con una tolerancia de 1e-12
+El valor de la integral es 1.3135179586 y se alcanza para un N de 12, con una tolerancia de 1e-12
 
 ~~~
 
